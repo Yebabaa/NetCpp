@@ -1,4 +1,4 @@
-# Net-
+# NetCpp
 Minimal Single header c++ networking library
 
 # Notes
