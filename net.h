@@ -83,6 +83,7 @@ namespace net {
 
             void cleanup()
             {
+                shutdown(client_socket, SD_SEND);
                 closesocket(client_socket);
                 WSACleanup();
             }
@@ -162,6 +163,7 @@ namespace net {
 
             void cleanup()
             {
+                shutdown(sock, SD_SEND);
                 closesocket(sock);
                 WSACleanup();
             }
