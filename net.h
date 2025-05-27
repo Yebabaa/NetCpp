@@ -19,7 +19,7 @@ namespace net {
 
     namespace tcp {
         enum class TCP_CONNECTION_EXCEPTIONS {
-            NET_ERROR, NET_DISCONNECT
+            NET_ERROR=1, NET_DISCONNECT
         };
 
         template<typename DATATYPE> class TCPServer
@@ -85,6 +85,15 @@ namespace net {
             {
                 closesocket(client_socket);
                 WSACleanup();
+            }
+
+            bool Error()
+            {
+                if (error != 0)
+                {
+                    return true;
+                }
+                return false;
             }
 
         private:
@@ -155,6 +164,15 @@ namespace net {
             {
                 closesocket(sock);
                 WSACleanup();
+            }
+
+            bool Error()
+            {
+                if (error != 0)
+                {
+                    return true;
+                }
+                return false;
             }
 
         private:
